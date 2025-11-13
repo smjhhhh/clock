@@ -9,7 +9,6 @@ function GoldPrice() {
                     title="Stock Market Heatmap"
                     style={{ border: 'none' }}
                     frameBorder="0"
-                    allowTransparency="true"
                 ></iframe>
             </div>
         </div>

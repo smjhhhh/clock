@@ -1,7 +1,7 @@
 {
-  "name": "clock",
+  "name": "personal-homepage",
   "version": "1.0.0",
-  "description": "",
+  "description": "我的个人主页 - 包含倒计时、天气、黄金价格、市场热力图、博客和本地AI助手",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,8 +23,11 @@
   },
   "homepage": "https://smjhhhh.github.io/clock",
   "dependencies": {
+    "@supabase/supabase-js": "^2.81.1",
+    "leaflet": "^1.9.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.9.5"
   },
   "devDependencies": {
