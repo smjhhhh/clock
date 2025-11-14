@@ -1,4 +1,5 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import HeatmapPage from './pages/HeatmapPage.jsx';
 import WeatherPage from './pages/WeatherPage.jsx';
@@ -10,7 +11,8 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/dashboard" element={<HomePage />} />
                 <Route path="/heatmap" element={<HeatmapPage />} />
                 <Route path="/weather" element={<WeatherPage />} />
                 <Route path="/blog" element={<BlogPage />} />

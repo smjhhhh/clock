@@ -7,6 +7,7 @@ import WorldClock from '../components/WorldClock.jsx';
 import FloatingGame from '../components/FloatingGame.jsx';
 import ExchangeRate from '../components/ExchangeRate.jsx';
 import WorldMap from '../components/WorldMap.jsx';
+import FeedsWidget from '../components/FeedsWidget.jsx';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
@@ -27,13 +28,16 @@ function HomePage() {
                 <WorldMap />
             </div>
 
-            {/* 右上角区域 - 黄金价格 + 汇率 + 导航按钮 */}
+            {/* 右上角区域 - 黄金价格 + 汇率 + 订阅 + 导航按钮 */}
             <div className="absolute top-8 right-8 z-10 flex flex-col gap-3">
                 {/* 黄金价格图表 */}
                 <GoldChart />
 
                 {/* 汇率表 */}
                 <ExchangeRate />
+
+                {/* 订阅中心 */}
+                <FeedsWidget />
 
                 {/* 页面导航按钮 */}
                 <Link
