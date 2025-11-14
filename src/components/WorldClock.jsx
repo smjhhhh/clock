@@ -44,17 +44,17 @@ function WorldClock() {
     }, []);
 
     return (
-        <div className="bg-black/80 backdrop-blur-lg rounded-lg p-4 shadow-2xl border-2 border-cyan-700/50">
-            <h3 className="text-cyan-400 font-bold text-sm mb-3 font-mono">🌍 世界时钟</h3>
+        <div className="bg-sky-100 dark:bg-sky-900 backdrop-blur-lg rounded-lg p-4 shadow-2xl border-2 border-sky-300 dark:border-sky-700">
+            <h3 className="text-gray-800 dark:text-gray-200 font-bold text-sm mb-3 font-mono">🌍 世界时钟</h3>
 
             <div className="space-y-2">
                 {/* 上海 */}
                 <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-2">
                         <span className="text-xl">🇨🇳</span>
-                        <span className="text-gray-300 text-sm font-mono">上海</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm font-mono">上海</span>
                     </div>
-                    <span className="text-green-400 font-bold font-mono text-base">
+                    <span className="text-green-600 dark:text-green-400 font-bold font-mono text-base">
                         {times.shanghai}
                     </span>
                 </div>
@@ -63,9 +63,9 @@ function WorldClock() {
                 <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-2">
                         <span className="text-xl">🇺🇸</span>
-                        <span className="text-gray-300 text-sm font-mono">阿灵顿</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm font-mono">阿灵顿</span>
                     </div>
-                    <span className="text-green-400 font-bold font-mono text-base">
+                    <span className="text-green-600 dark:text-green-400 font-bold font-mono text-base">
                         {times.arlington}
                     </span>
                 </div>

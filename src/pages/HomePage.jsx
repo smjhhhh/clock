@@ -11,6 +11,8 @@ import FloatingGame from '../components/FloatingGame.jsx';
 import ExchangeRate from '../components/ExchangeRate.jsx';
 import WorldMap from '../components/WorldMap.jsx';
 import FeedsWidget from '../components/FeedsWidget.jsx';
+import { FaReact, FaVuejs, FaNodeJs, FaPython, FaDocker, FaGitAlt } from 'react-icons/fa';
+import { SiTypescript, SiTailwindcss } from 'react-icons/si';
 
 function HomePage() {
     const [darkMode, setDarkMode] = useState(false);
@@ -36,14 +38,27 @@ function HomePage() {
     };
 
     const techStack = [
-        { name: 'React', icon: '⚛️', color: 'bg-blue-100 dark:bg-blue-900' },
-        { name: 'Vue', icon: '💚', color: 'bg-green-100 dark:bg-green-900' },
-        { name: 'TypeScript', icon: '📘', color: 'bg-blue-100 dark:bg-blue-900' },
-        { name: 'Node.js', icon: '🟢', color: 'bg-green-100 dark:bg-green-900' },
-        { name: 'Python', icon: '🐍', color: 'bg-yellow-100 dark:bg-yellow-900' },
-        { name: 'Tailwind', icon: '🎨', color: 'bg-cyan-100 dark:bg-cyan-900' },
-        { name: 'Docker', icon: '🐳', color: 'bg-blue-100 dark:bg-blue-900' },
-        { name: 'Git', icon: '📚', color: 'bg-orange-100 dark:bg-orange-900' },
+        { name: 'React', Icon: FaReact, color: '#61DAFB', bgColor: 'rgba(97, 218, 251, 0.25)' },
+        { name: 'Vue', Icon: FaVuejs, color: '#42B883', bgColor: 'rgba(66, 184, 131, 0.25)' },
+        { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6', bgColor: 'rgba(49, 120, 198, 0.25)' },
+        { name: 'Node.js', Icon: FaNodeJs, color: '#339933', bgColor: 'rgba(51, 153, 51, 0.25)' },
+        { name: 'Python', Icon: FaPython, color: '#3776AB', bgColor: 'rgba(55, 118, 171, 0.25)' },
+        { name: 'Tailwind', Icon: SiTailwindcss, color: '#06B6D4', bgColor: 'rgba(6, 182, 212, 0.25)' },
+        { name: 'Docker', Icon: FaDocker, color: '#2496ED', bgColor: 'rgba(36, 150, 237, 0.25)' },
+        { name: 'Git', Icon: FaGitAlt, color: '#F05032', bgColor: 'rgba(240, 80, 50, 0.25)' },
+    ];
+
+    const honors = [
+        { title: 'Apache Fury Official Website Builder', year: '2024', icon: '🏆' },
+        { title: 'Tencent Cloud Best Open Source Contributor', year: '2024', icon: '🏆' },
+        { title: 'Alibaba Cloud Tianchi Champion', year: '2024', icon: '🏆' },
+    ];
+
+    const interests = [
+        { name: 'Traveling', icon: '✈️' },
+        { name: 'Music', icon: '🎵' },
+        { name: 'Photography', icon: '📷' },
+        { name: 'Coding', icon: '💻' },
     ];
 
     return (
@@ -73,92 +88,138 @@ function HomePage() {
                 </div>
             </nav>
 
-            {/* 主内容区域 */}
+            {/* 主内容区域 - 左右两栏布局 */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                {/* 个人介绍区 */}
-                <section id="about" className="mb-20" data-aos="fade-up">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                        {/* 左侧 - 个人信息 */}
-                        <div>
-                            <div className="mb-6">
-                                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-cyan-400 shadow-xl mb-6">
-                                    <img
-                                        src="/images/avatar.webp?v=2"
-                                        alt="Avatar"
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                                <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-                                    你好，我是 <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">Yoru</span>，来自上海，很高兴认识你 👋
-                                </h1>
-                                <p className="text-lg text-gray-900 dark:text-white mb-4">
-                                    🌟 Dream to be a full-stack developer.
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {/* 左侧主内容区 */}
+                    <div className="lg:col-span-2 space-y-8">
+                        {/* 个人介绍卡片 */}
+                        <section data-aos="fade-up">
+                            <div className="bg-gradient-to-r from-cyan-400 to-blue-400 dark:from-cyan-500 dark:to-blue-500 rounded-2xl p-8 text-white shadow-xl">
+                                <p className="text-lg md:text-xl mb-2 font-medium">
+                                    你好，我是 Yoru，来自上海，很高兴认识你 👋
                                 </p>
-                                <p className="text-base text-gray-800 dark:text-gray-200 mb-6">
+                                <h1 className="text-3xl md:text-4xl font-bold mb-3">
+                                    🌟 Dream to be a full-stack developer.
+                                </h1>
+                                <p className="text-base opacity-95">
                                     前端开发 / 产品设计 / 模型调参 / agent 开发
                                 </p>
                             </div>
+                        </section>
 
-                            {/* 学生信息框 */}
-                            <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-500 p-4 rounded-lg">
-                                <p className="text-blue-800 dark:text-blue-300 flex items-center gap-2">
-                                    <span>💡</span>
-                                    <span className="font-medium">I am a software engineering student.</span>
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* 右侧 - 关于我 */}
-                        <div className="bg-sky-100 dark:bg-sky-900 rounded-2xl shadow-lg p-8 border border-sky-200 dark:border-sky-700">
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                                <span>✨</span>
-                                <span>About Me</span>
-                            </h2>
-                            <div className="space-y-4">
-                                <div className="flex items-start gap-3">
-                                    <span className="text-2xl">😺</span>
-                                    <p className="text-gray-900 dark:text-white pt-1">
-                                        Love coding and open source.
-                                    </p>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                    <span className="text-2xl">🎂</span>
-                                    <p className="text-gray-900 dark:text-white pt-1">
-                                        2002.9.26 born in Shanghai.
-                                    </p>
-                                </div>
-                                <div className="flex items-center gap-2 pt-2">
-                                    <span className="text-2xl">🔥</span>
-                                    <span className="text-2xl">🌱</span>
-                                    <p className="text-gray-800 dark:text-gray-100 italic">
-                                        Passionate learner, always growing
-                                    </p>
+                        {/* 学生信息 */}
+                        <section data-aos="fade-up" data-aos-delay="100">
+                            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                    <span>🎓</span>
+                                    <span>I am a software engineering student.</span>
+                                </h2>
+                                <div className="space-y-3 text-gray-700 dark:text-gray-300">
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-xl">😺</span>
+                                        <p>Love coding and open source.</p>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-xl">🎂</span>
+                                        <p>2002.9.26 born in Shanghai.</p>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-xl">🔥</span>
+                                        <p>Passionate learner, always growing</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </section>
 
-                    {/* 技术栈展示 */}
-                    <div className="mb-12" data-aos="fade-up" data-aos-delay="100">
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">技术栈</h2>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            {techStack.map((tech, idx) => (
-                                <div
-                                    key={idx}
-                                    className={`${tech.color} px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all hover:scale-105 cursor-pointer`}
-                                >
-                                    <span className="text-2xl mr-2">{tech.icon}</span>
-                                    <span className="font-semibold text-gray-800 dark:text-gray-200">{tech.name}</span>
+                        {/* 头像和工作经历 */}
+                        <section data-aos="fade-up" data-aos-delay="200">
+                            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-cyan-400 shadow-lg">
+                                        <img
+                                            src="/images/avatar.webp?v=2"
+                                            alt="Avatar"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Yoru</h2>
+                                        <p className="text-gray-600 dark:text-gray-400">Full-stack Developer</p>
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        </section>
                     </div>
-                </section>
 
-                {/* 工具仪表板区 */}
+                    {/* 右侧边栏 */}
+                    <div className="lg:col-span-1 space-y-6">
+                        {/* 技术栈 */}
+                        <section data-aos="fade-up">
+                            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">技术栈</h3>
+                                <div className="grid grid-cols-4 gap-2">
+                                    {techStack.map((tech, idx) => (
+                                        <div
+                                            key={idx}
+                                            className="aspect-square flex items-center justify-center rounded-xl transition-all hover:scale-105 cursor-pointer shadow-sm"
+                                            style={{
+                                                backgroundColor: tech.bgColor,
+                                            }}
+                                            title={tech.name}
+                                        >
+                                            <tech.Icon className="text-4xl" style={{ color: tech.color }} />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+                        {/* 兴趣爱好 */}
+                        <section data-aos="fade-up" data-aos-delay="200">
+                            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                    <span>💫</span>
+                                    <span>Interests</span>
+                                </h3>
+                                <div className="space-y-2.5">
+                                    {interests.map((interest, idx) => (
+                                        <div key={idx} className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                            <span className="text-xl">{interest.icon}</span>
+                                            <span className="text-sm">{interest.name}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* 联系方式 */}
+                        <section data-aos="fade-up" data-aos-delay="300">
+                            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                    <span>📬</span>
+                                    <span>Contact</span>
+                                </h3>
+                                <div className="space-y-2.5">
+                                    <a href="https://github.com/smjhhhh" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors text-sm">
+                                        <span className="text-xl">💼</span>
+                                        <span>GitHub</span>
+                                    </a>
+                                    <a href="mailto:your@email.com" className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors text-sm">
+                                        <span className="text-xl">📧</span>
+                                        <span>Email</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            {/* 工具仪表板区 */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <section id="tools" className="mb-20">
                     <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-aos="fade-up">
-                        我的工具箱
+                        Yoru's 工具箱
                     </h2>
 
                     {/* 第一行：时钟 + 天气 + 世界时钟 */}
@@ -177,7 +238,7 @@ function HomePage() {
                         </div>
                         <div className="bg-sky-100 dark:bg-sky-900 rounded-2xl shadow-lg p-6 border border-sky-200 dark:border-sky-700" data-aos="fade-up" data-aos-delay="200">
                             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                                🌍 世界时钟
+                                🌍 工作时间
                             </h3>
                             <WorldClock />
                         </div>
@@ -237,9 +298,11 @@ function HomePage() {
                 </section>
             </div>
 
-            {/* 浮动组件 */}
-            <FloatingAI />
-            <FloatingGame />
+            {/* 左下角固定组件 */}
+            <div className="fixed bottom-8 left-8 z-50 flex flex-col gap-4">
+                <FloatingAI />
+                <FloatingGame />
+            </div>
 
             {/* 页脚 */}
             <footer className="bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-gray-700 py-8">

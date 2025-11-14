@@ -1,6 +1,6 @@
 function GoldChart() {
     return (
-        <div className="bg-black/80 backdrop-blur-lg rounded-lg p-2 shadow-xl border-2 border-yellow-900/50">
+        <div className="bg-sky-100 dark:bg-sky-900 backdrop-blur-lg rounded-lg p-2 shadow-xl border-2 border-sky-300 dark:border-sky-700">
             {/* 黄金价格图表 */}
             <div className="rounded overflow-hidden">
                 <iframe

@@ -80,8 +80,8 @@ function WeatherCard({ city, cityEn }) {
 
     if (loading) {
         return (
-            <div className="bg-black/80 backdrop-blur-lg rounded-lg p-4 shadow-xl min-w-[180px]">
-                <div className="text-blue-300 text-sm animate-pulse">加载中...</div>
+            <div className="bg-sky-100 dark:bg-sky-900 backdrop-blur-lg rounded-lg p-4 shadow-xl min-w-[180px]">
+                <div className="text-gray-600 dark:text-gray-300 text-sm animate-pulse">加载中...</div>
             </div>
         );
     }
@@ -95,13 +95,13 @@ function WeatherCard({ city, cityEn }) {
     const icon = getWeatherIcon(weatherCode);
 
     return (
-        <div className="bg-black/80 backdrop-blur-lg rounded-lg p-4 shadow-xl min-w-[180px]">
-            <div className="text-blue-300 text-sm font-semibold mb-2">{city}</div>
+        <div className="bg-sky-100 dark:bg-sky-900 backdrop-blur-lg rounded-lg p-4 shadow-xl min-w-[180px]">
+            <div className="text-gray-800 dark:text-gray-200 text-sm font-semibold mb-2">{city}</div>
             <div className="flex items-center gap-3">
                 <div className="text-5xl">{icon}</div>
                 <div>
-                    <div className="text-3xl font-bold text-blue-100">{temp}°C</div>
-                    <div className="text-xs text-gray-400">{weatherDesc}</div>
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white">{temp}°C</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">{weatherDesc}</div>
                 </div>
             </div>
         </div>

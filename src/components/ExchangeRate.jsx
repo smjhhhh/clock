@@ -46,25 +46,25 @@ function ExchangeRate() {
 
     if (rates.loading) {
         return (
-            <div className="bg-black/80 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-orange-700/50">
-                <h3 className="text-orange-400 font-bold text-xs mb-2 font-mono">💱 实时汇率</h3>
-                <div className="text-gray-400 text-xs font-mono">加载中...</div>
+            <div className="bg-sky-100 dark:bg-sky-900 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-sky-300 dark:border-sky-700">
+                <h3 className="text-gray-800 dark:text-gray-200 font-bold text-xs mb-2 font-mono">💱 实时汇率</h3>
+                <div className="text-gray-600 dark:text-gray-400 text-xs font-mono">加载中...</div>
             </div>
         );
     }
 
     return (
-        <div className="bg-black/80 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-orange-700/50">
-            <h3 className="text-orange-400 font-bold text-xs mb-2 font-mono">💱 实时汇率</h3>
+        <div className="bg-sky-100 dark:bg-sky-900 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-sky-300 dark:border-sky-700">
+            <h3 className="text-gray-800 dark:text-gray-200 font-bold text-xs mb-2 font-mono">💱 实时汇率</h3>
 
             <div className="space-y-1.5">
                 {/* USD/CNY */}
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
                         <span className="text-base">🇺🇸</span>
-                        <span className="text-gray-300 text-xs font-mono">USD/CNY</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-xs font-mono">USD/CNY</span>
                     </div>
-                    <span className="text-green-400 font-bold text-sm font-mono">
+                    <span className="text-gray-900 dark:text-white font-bold text-sm font-mono">
                         {rates.error ? rates.error : `¥${rates.usdCny}`}
                     </span>
                 </div>
@@ -73,17 +73,17 @@ function ExchangeRate() {
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
                         <span className="text-base">🇯🇵</span>
-                        <span className="text-gray-300 text-xs font-mono">JPY/CNY</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-xs font-mono">JPY/CNY</span>
                     </div>
-                    <span className="text-green-400 font-bold text-sm font-mono">
+                    <span className="text-gray-900 dark:text-white font-bold text-sm font-mono">
                         {rates.error ? rates.error : `¥${rates.jpyCny}`}
                     </span>
                 </div>
             </div>
 
             {!rates.error && (
-                <div className="mt-2 pt-2 border-t border-orange-700/30">
-                    <div className="text-gray-500 text-[10px] font-mono text-center">
+                <div className="mt-2 pt-2 border-t border-sky-300 dark:border-sky-700">
+                    <div className="text-gray-600 dark:text-gray-400 text-[10px] font-mono text-center">
                         每5分钟更新
                     </div>
                 </div>

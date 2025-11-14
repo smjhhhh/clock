@@ -99,7 +99,7 @@ function FloatingAI() {
         <>
             {/* 聊天窗口 */}
             {isOpen && (
-                <div className="fixed bottom-24 right-8 z-50 w-96 h-[500px] bg-black/95 backdrop-blur-lg rounded-lg shadow-2xl border-2 border-green-700/50 flex flex-col">
+                <div className="w-96 h-[500px] bg-black/95 backdrop-blur-lg rounded-lg shadow-2xl border-2 border-green-700/50 flex flex-col mb-4">
                     {/* 头部 */}
                     <div className="p-3 border-b border-green-700/30">
                         <div className="flex items-center justify-between mb-2">
@@ -220,7 +220,7 @@ function FloatingAI() {
             {/* 浮动按钮 */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-gradient-to-br from-green-600 to-green-800 hover:from-green-500 hover:to-green-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 border-2 border-green-400/50"
+                className="w-14 h-14 bg-gradient-to-br from-green-600 to-green-800 hover:from-green-500 hover:to-green-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 border-2 border-green-400/50"
                 title="AI 助手"
             >
                 {isOpen ? (

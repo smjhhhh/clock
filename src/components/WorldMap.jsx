@@ -31,10 +31,10 @@ function WorldMap() {
     const center = [35, 20];
 
     return (
-        <div className="bg-black/80 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-blue-700/50">
-            <h3 className="text-blue-400 font-bold text-xs mb-2 font-mono">🗺️ 世界地图</h3>
+        <div className="bg-sky-100 dark:bg-sky-900 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-sky-300 dark:border-sky-700">
+            <h3 className="text-gray-800 dark:text-gray-200 font-bold text-xs mb-2 font-mono">🗺️ 世界地图</h3>
 
-            <div className="rounded overflow-hidden border border-blue-700/30">
+            <div className="rounded overflow-hidden border border-sky-300 dark:border-sky-700">
                 <MapContainer
                     center={center}
                     zoom={2}
@@ -52,7 +52,7 @@ function WorldMap() {
                             <Popup>
                                 <div className="font-mono text-xs">
                                     <div className="font-bold">{loc.emoji} {loc.name}</div>
-                                    <div className="text-gray-600">{loc.info}</div>
+                                    <div className="text-gray-600 dark:text-gray-400">{loc.info}</div>
                                 </div>
                             </Popup>
                         </Marker>
@@ -60,7 +60,7 @@ function WorldMap() {
                 </MapContainer>
             </div>
 
-            <div className="mt-2 flex gap-3 text-[10px] text-gray-400 font-mono justify-center">
+            <div className="mt-2 flex gap-3 text-[10px] text-gray-600 dark:text-gray-400 font-mono justify-center">
                 <span>🇨🇳 上海</span>
                 <span>•</span>
                 <span>🇺🇸 阿灵顿</span>

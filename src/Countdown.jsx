@@ -40,24 +40,24 @@ function Countdown() {
     return (
         <div className="flex flex-col items-center gap-3">
             {/* LED 显示屏 - 缩小版 */}
-            <div className="bg-black rounded-lg p-4 shadow-xl border-2 border-red-900">
+            <div className="bg-sky-100 dark:bg-sky-900 rounded-lg p-4 shadow-xl border-2 border-sky-300 dark:border-sky-700">
                 <div className="flex items-center gap-1">
                     {/* 分 */}
                     <div className="flex gap-0.5">
-                        <LEDDigit digit={minutes[0]} />
-                        <LEDDigit digit={minutes[1]} />
+                        <LEDDigit digit={minutes[0]} color="from-pink-400 to-rose-500" shadow="shadow-pink-500/50" />
+                        <LEDDigit digit={minutes[1]} color="from-purple-400 to-violet-500" shadow="shadow-purple-500/50" />
                     </div>
 
                     {/* 冒号 */}
                     <div className="flex flex-col gap-2 mx-0.5">
-                        <div className="w-1.5 h-1.5 bg-red-500 rounded-full shadow-md shadow-red-500/50"></div>
-                        <div className="w-1.5 h-1.5 bg-red-500 rounded-full shadow-md shadow-red-500/50"></div>
+                        <div className="w-1.5 h-1.5 bg-orange-500 rounded-full shadow-md shadow-orange-500/50"></div>
+                        <div className="w-1.5 h-1.5 bg-orange-500 rounded-full shadow-md shadow-orange-500/50"></div>
                     </div>
 
                     {/* 秒 */}
                     <div className="flex gap-0.5">
-                        <LEDDigit digit={seconds[0]} />
-                        <LEDDigit digit={seconds[1]} />
+                        <LEDDigit digit={seconds[0]} color="from-green-400 to-emerald-500" shadow="shadow-green-500/50" />
+                        <LEDDigit digit={seconds[1]} color="from-cyan-400 to-blue-500" shadow="shadow-cyan-500/50" />
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ function Countdown() {
                 {/* 开始/暂停按钮 */}
                 <button
                     onClick={toggleTimer}
-                    className="w-10 h-10 bg-red-900 hover:bg-red-800 text-red-400 text-xl rounded border border-red-700 transition-colors flex items-center justify-center"
+                    className="w-10 h-10 bg-green-600 hover:bg-green-700 text-white text-xl rounded border border-green-500 transition-colors flex items-center justify-center"
                     title={isRunning ? "暂停" : "开始"}
                 >
                     {isRunning ? '⏸' : '▶'}
@@ -76,7 +76,7 @@ function Countdown() {
                 {/* 重置按钮 */}
                 <button
                     onClick={resetTimer}
-                    className="w-10 h-10 bg-red-900 hover:bg-red-800 text-red-400 text-xl rounded border border-red-700 transition-colors flex items-center justify-center"
+                    className="w-10 h-10 bg-purple-600 hover:bg-purple-700 text-white text-xl rounded border border-purple-500 transition-colors flex items-center justify-center"
                     title="重置"
                 >
                     ↻
@@ -87,7 +87,7 @@ function Countdown() {
 }
 
 // LED 数字组件 - 七段数码管
-function LEDDigit({ digit }) {
+function LEDDigit({ digit, color, shadow }) {
     const segments = {
         '0': [true, true, true, true, true, true, false],
         '1': [false, true, true, false, false, false, false],
@@ -103,34 +103,38 @@ function LEDDigit({ digit }) {
 
     const [a, b, c, d, e, f, g] = segments[digit] || [false, false, false, false, false, false, false];
 
+    // 统一的颜色类
+    const activeColor = `bg-gradient-to-r ${color} shadow-md ${shadow}`;
+    const inactiveColor = 'bg-gray-300 dark:bg-gray-600';
+
     return (
         <div className="relative w-8 h-14">
             {/* 上横 (a) */}
-            <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-6 h-1.5 ${a ? 'bg-red-500 shadow-md shadow-red-500/50' : 'bg-gray-800'}`}
+            <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-6 h-1.5 ${a ? activeColor : inactiveColor}`}
                  style={{ clipPath: 'polygon(10% 0%, 90% 0%, 80% 100%, 20% 100%)' }}></div>
 
             {/* 右上竖 (b) */}
-            <div className={`absolute top-0.5 right-0 w-1.5 h-5 ${b ? 'bg-red-500 shadow-md shadow-red-500/50' : 'bg-gray-800'}`}
+            <div className={`absolute top-0.5 right-0 w-1.5 h-5 ${b ? activeColor : inactiveColor}`}
                  style={{ clipPath: 'polygon(0% 10%, 100% 20%, 100% 80%, 0% 90%)' }}></div>
 
             {/* 右下竖 (c) */}
-            <div className={`absolute bottom-0.5 right-0 w-1.5 h-5 ${c ? 'bg-red-500 shadow-md shadow-red-500/50' : 'bg-gray-800'}`}
+            <div className={`absolute bottom-0.5 right-0 w-1.5 h-5 ${c ? activeColor : inactiveColor}`}
                  style={{ clipPath: 'polygon(0% 10%, 100% 20%, 100% 80%, 0% 90%)' }}></div>
 
             {/* 下横 (d) */}
-            <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-1.5 ${d ? 'bg-red-500 shadow-md shadow-red-500/50' : 'bg-gray-800'}`}
+            <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-1.5 ${d ? activeColor : inactiveColor}`}
                  style={{ clipPath: 'polygon(10% 0%, 90% 0%, 80% 100%, 20% 100%)' }}></div>
 
             {/* 左下竖 (e) */}
-            <div className={`absolute bottom-0.5 left-0 w-1.5 h-5 ${e ? 'bg-red-500 shadow-md shadow-red-500/50' : 'bg-gray-800'}`}
+            <div className={`absolute bottom-0.5 left-0 w-1.5 h-5 ${e ? activeColor : inactiveColor}`}
                  style={{ clipPath: 'polygon(0% 10%, 100% 20%, 100% 80%, 0% 90%)' }}></div>
 
             {/* 左上竖 (f) */}
-            <div className={`absolute top-0.5 left-0 w-1.5 h-5 ${f ? 'bg-red-500 shadow-md shadow-red-500/50' : 'bg-gray-800'}`}
+            <div className={`absolute top-0.5 left-0 w-1.5 h-5 ${f ? activeColor : inactiveColor}`}
                  style={{ clipPath: 'polygon(0% 10%, 100% 20%, 100% 80%, 0% 90%)' }}></div>
 
             {/* 中横 (g) */}
-            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-1.5 ${g ? 'bg-red-500 shadow-md shadow-red-500/50' : 'bg-gray-800'}`}
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-1.5 ${g ? activeColor : inactiveColor}`}
                  style={{ clipPath: 'polygon(10% 0%, 90% 0%, 80% 100%, 20% 100%)' }}></div>
         </div>
     );

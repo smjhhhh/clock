@@ -102,11 +102,11 @@ function FeedsWidget() {
 
     if (FEED_SOURCES.length === 0) {
         return (
-            <div className="bg-black/80 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-pink-700/50">
-                <h3 className="text-pink-400 font-bold text-xs mb-2 font-mono">📡 订阅中心</h3>
-                <div className="text-gray-400 text-xs font-mono text-center py-4">
+            <div className="bg-sky-100 dark:bg-sky-900 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-sky-300 dark:border-sky-700">
+                <h3 className="text-gray-800 dark:text-gray-200 font-bold text-xs mb-2 font-mono">📡 订阅中心</h3>
+                <div className="text-gray-600 dark:text-gray-400 text-xs font-mono text-center py-4">
                     <div className="mb-2">未配置订阅源</div>
-                    <div className="text-[10px] text-gray-500">
+                    <div className="text-[10px] text-gray-600 dark:text-gray-400">
                         编辑 FeedsWidget.jsx 添加订阅
                     </div>
                 </div>
@@ -115,13 +115,13 @@ function FeedsWidget() {
     }
 
     return (
-        <div className="bg-black/80 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-pink-700/50">
+        <div className="bg-sky-100 dark:bg-sky-900 backdrop-blur-lg rounded-lg p-3 shadow-2xl border-2 border-sky-300 dark:border-sky-700">
             <div className="flex items-center justify-between mb-2">
-                <h3 className="text-pink-400 font-bold text-xs font-mono">📡 订阅中心</h3>
+                <h3 className="text-gray-800 dark:text-gray-200 font-bold text-xs font-mono">📡 订阅中心</h3>
                 {!loading && (
                     <button
                         onClick={fetchAllFeeds}
-                        className="text-pink-500 hover:text-pink-300 text-xs"
+                        className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-xs"
                         title="刷新"
                     >
                         🔄
@@ -130,15 +130,15 @@ function FeedsWidget() {
             </div>
 
             {loading && feeds.length === 0 ? (
-                <div className="text-gray-400 text-xs font-mono text-center py-2">
+                <div className="text-gray-600 dark:text-gray-400 text-xs font-mono text-center py-2">
                     加载中...
                 </div>
             ) : error ? (
-                <div className="text-red-400 text-xs font-mono text-center py-2">
+                <div className="text-gray-700 dark:text-gray-300 text-xs font-mono text-center py-2">
                     {error}
                 </div>
             ) : feeds.length === 0 ? (
-                <div className="text-gray-400 text-xs font-mono text-center py-2">
+                <div className="text-gray-600 dark:text-gray-400 text-xs font-mono text-center py-2">
                     暂无更新
                 </div>
             ) : (
@@ -149,17 +149,17 @@ function FeedsWidget() {
                             href={feed.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block bg-gray-900/50 hover:bg-gray-800/70 rounded p-2 border border-pink-700/30 transition-all"
+                            className="block bg-white/50 dark:bg-sky-800/50 hover:bg-white/70 dark:hover:bg-sky-800/70 rounded p-2 border border-sky-300 dark:border-sky-700 transition-all"
                         >
                             <div className="flex items-start gap-2">
                                 <span className="text-base flex-shrink-0 mt-0.5">
                                     {getPlatformIcon(feed.platform)}
                                 </span>
                                 <div className="flex-1 min-w-0">
-                                    <div className="text-gray-200 text-xs font-mono line-clamp-2 mb-1">
+                                    <div className="text-gray-800 dark:text-gray-200 text-xs font-mono line-clamp-2 mb-1">
                                         {feed.title}
                                     </div>
-                                    <div className="flex items-center gap-2 text-[10px] text-gray-500">
+                                    <div className="flex items-center gap-2 text-[10px] text-gray-600 dark:text-gray-400">
                                         <span>{feed.author}</span>
                                         <span>•</span>
                                         <span>{getTimeAgo(feed.pubDate)}</span>
@@ -171,8 +171,8 @@ function FeedsWidget() {
                 </div>
             )}
 
-            <div className="mt-2 pt-2 border-t border-pink-700/30">
-                <div className="text-gray-500 text-[10px] font-mono text-center">
+            <div className="mt-2 pt-2 border-t border-sky-300 dark:border-sky-700">
+                <div className="text-gray-600 dark:text-gray-400 text-[10px] font-mono text-center">
                     每10分钟自动更新
                 </div>
             </div>
