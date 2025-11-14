@@ -6,7 +6,7 @@ function LandingPage() {
     const config = {
         name: 'David',
         nameHighlight: 'David',
-        avatar: '/clock/images/avatar.webp?v=2',  // 头像路径（放到 public/images/ 下）
+        avatar: '/images/avatar.webp?v=2',  // 头像路径（放到 public/images/ 下）
         title: '全栈开发 / 技术博客',
         quote: '你好，我是 David，一名全栈开发工程师、技术爱好者、终身学习者',
         buttons: [
