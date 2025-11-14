@@ -24,6 +24,7 @@
   "homepage": "https://smjhhhh.github.io/clock",
   "dependencies": {
     "@supabase/supabase-js": "^2.81.1",
+    "aos": "^2.3.4",
     "leaflet": "^1.9.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

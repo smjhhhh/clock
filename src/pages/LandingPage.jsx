@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function LandingPage() {
     // 配置你的个人信息
     const config = {
-        name: 'David',
-        nameHighlight: 'David',
+        name: 'Yoru',
+        nameHighlight: 'Yoru',
         avatar: '/images/avatar.webp?v=2',  // 头像路径（放到 public/images/ 下）
-        title: '全栈开发 / 技术博客',
-        quote: '你好，我是 David，一名全栈开发工程师、技术爱好者、终身学习者',
+        title: '全栈开发 / 碎碎念/工具集成',
+        quote: '你好，我是一名全栈开发工程师、技术爱好者、 INFP、杀戮尖塔高手',
         buttons: [
             { text: '👋 进入主页', link: '/dashboard', variant: 'pink' },
             { text: '💻 Github', link: 'https://github.com/smjhhhh', variant: 'blue', external: true }
@@ -18,39 +20,45 @@ function LandingPage() {
     // 生成随机 emoji 背景
     const [emojis, setEmojis] = useState([]);
 
+    // 初始化 AOS
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out'
+        });
+    }, []);
+
     useEffect(() => {
         const emojiList = [
-            // 游戏娱乐
-            '🎮', '🎯', '🎨', '🎭', '🎪', '🎬', '🎤', '🎧', '🎼', '🎹', '🎸', '🎺', '🎻', '🥁', '🪕', '🎷',
-            '🎲', '🎰', '🎳', '🏀', '⚽', '🏈', '⚾', '🎾', '🏐', '🏉', '🎱', '🏓', '🏸', '🎮', '🕹️',
-            '🥊', '🥋', '🥅', '⛳', '⛸️', '🎣', '🎿', '🛷', '🥌', '🏹', '🎯', '🪀', '🪁', '🪂', '🏋️',
+            // 😀 鬼脸表情大全（超多）
+            '😀', '😃', '😄', '😁', '😆', '😅', '🤣', '😂', '🙂', '🙃', '😉', '😊', '😇', '🥰', '😍', '🤩',
+            '😘', '😗', '😚', '😙', '🥲', '😋', '😛', '😜', '🤪', '😝', '🤑', '🤗', '🤭', '🤫', '🤔', '🤐',
+            '🤨', '😐', '😑', '😶', '😏', '😒', '🙄', '😬', '🤥', '😌', '😔', '😪', '🤤', '😴', '😷', '🤒',
+            '🤕', '🤢', '🤮', '🤧', '🥵', '🥶', '🥴', '😵', '🤯', '🤠', '🥳', '🥸', '😎', '🤓', '🧐', '😕',
+            '😟', '🙁', '☹️', '😮', '😯', '😲', '😳', '🥺', '😦', '😧', '😨', '😰', '😥', '😢', '😭', '😱',
+            '😖', '😣', '😞', '😓', '😩', '😫', '🥱', '😤', '😡', '😠', '🤬', '😈', '👿', '💀', '☠️', '💩',
+            '🤡', '👹', '👺', '👻', '👽', '👾', '🤖',
 
-            // 奖杯成就
-            '🛹', '🛼', '🛴', '🏆', '🥇', '🥈', '🥉', '🏅', '🎖️', '🎗️', '🏵️', '🎀', '🎁', '🎊', '🎉',
-            '💝', '🎈', '🎂', '🎄', '🎃', '🎍', '🎋', '🎏', '🎐', '🎑', '🧧', '🎎', '🎟️', '🎫', '🎭',
+            // 🎮 游戏娱乐（精简常用）
+            '🎮', '🎯', '🎨', '🎭', '🎬', '🎤', '🎧', '🎸', '🎹', '🎲', '🎰', '🕹️',
+            '⚽', '🏀', '🏈', '⚾', '🎾', '🏐', '🎱', '🏓', '🏸',
 
-            // 物品配饰
-            '🖼️', '🧵', '🧶', '🪡', '🪢', '👓', '🕶️', '🥽', '🥼', '🦺', '👔', '👕', '👖', '🧣', '🧤',
-            '🧥', '🧦', '👗', '👘', '🥻', '🩱', '🩲', '🩳', '👙', '👚', '👛', '👜', '👝', '🛍️', '🎒',
-            '🩴', '👞', '👟', '🥾', '🥿', '👠', '👡', '🩰', '👢', '👑', '👒', '🎩', '🎓', '🧢', '⛑️',
+            // 🏆 成就庆祝
+            '🏆', '🥇', '🥈', '🥉', '🏅', '🎖️', '🎁', '🎊', '🎉', '🎈', '🎂', '🎄', '🎃',
 
-            // 科技办公
-            '🪖', '💄', '💍', '💼', '🌂', '☂️', '💻', '⌨️', '🖥️', '🖨️', '🖱️', '🖲️', '💾', '💿', '📀',
-            '📱', '📲', '☎️', '📞', '📟', '📠', '📺', '📻', '🎙️', '🎚️', '🎛️', '🧭', '⏱️', '⏲️', '⏰',
+            // 💻 科技学习（常用）
+            '💻', '⌨️', '🖥️', '🖱️', '💾', '💿', '📱', '📲', '☎️', '📺', '🎙️',
+            '📚', '📖', '📝', '✏️', '📄', '📊', '📈', '📉', '📆', '📅',
 
-            // 文具书本
-            '🕰️', '⌛', '⏳', '📡', '🔋', '🔌', '💡', '🔦', '🕯️', '🪔', '🧯', '🛢️', '💸', '💵', '💴',
-            '📚', '📖', '📝', '📄', '📃', '📑', '📊', '📈', '📉', '🗒️', '🗓️', '📆', '📅', '🗑️', '📇',
-            '🗃️', '🗄️', '📋', '📁', '📂', '🗂️', '🗞️', '📰', '📓', '📔', '📒', '📕', '📗', '📘', '📙',
+            // ✨ 特效符号
+            '✨', '⭐', '🌟', '💫', '🔥', '💥', '⚡', '💨', '🌈', '☀️', '⛅', '☁️', '🌧️', '⛈️', '❄️', '☃️', '🌊', '💧',
 
-            // 符号标志
-            '✨', '⭐', '🌟', '💫', '✨', '🔥', '💥', '⚡', '💦', '💨', '🌈', '☀️', '🌤️', '⛅', '🌥️',
-            '☁️', '🌦️', '🌧️', '⛈️', '🌩️', '🌨️', '❄️', '☃️', '⛄', '🌬️', '💨', '🌪️', '🌫️', '🌊', '💧',
+            // ❤️ 爱心表情
+            '❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💔', '❣️', '💕', '💞', '💓', '💗', '💖', '💘', '💝',
 
-            // 更多表情
-            '❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💔', '❣️', '💕', '💞', '💓', '💗',
-            '💖', '💘', '💝', '💟', '☮️', '✝️', '☪️', '🕉️', '☸️', '✡️', '🔯', '🕎', '☯️', '☦️', '🛐',
-            '⚽', '🏀', '🏈', '⚾', '🥎', '🎾', '🏐', '🏉', '🥏', '🎱', '🪀', '🏓', '🏸', '🏒', '🏑'
+            // 🍕 食物（常用）
+            '☕', '🍕', '🍔', '🍟', '🌮', '🌯', '🍱', '🍜', '🍝', '🍰', '🎂', '🧁', '🍦', '🍩', '🍪'
         ];
 
         // 生成多行emoji，每行一排从左向右移动
@@ -84,6 +92,45 @@ function LandingPage() {
                             transform: translateX(-50%);
                         }
                     }
+                    @keyframes float {
+                        0%, 100% {
+                            transform: translateY(0);
+                        }
+                        50% {
+                            transform: translateY(-20px);
+                        }
+                    }
+                    @keyframes bounce-border {
+                        0%, 100% {
+                            box-shadow: 0 0 20px rgba(34, 211, 238, 0.6), 0 0 40px rgba(34, 211, 238, 0.3);
+                            border-color: #22d3ee;
+                        }
+                        50% {
+                            box-shadow: 0 0 40px rgba(34, 211, 238, 1), 0 0 60px rgba(34, 211, 238, 0.5);
+                            border-color: #06b6d4;
+                        }
+                    }
+                    @keyframes shake-hand {
+                        0%, 100% {
+                            transform: rotate(0deg);
+                        }
+                        10%, 30%, 50%, 70%, 90% {
+                            transform: rotate(14deg);
+                        }
+                        20%, 40%, 60%, 80% {
+                            transform: rotate(-14deg);
+                        }
+                    }
+                    @keyframes scale-in-center {
+                        0% {
+                            transform: scale(0);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: scale(1);
+                            opacity: 1;
+                        }
+                    }
                     .emoji-row {
                         display: flex;
                         position: absolute;
@@ -92,8 +139,19 @@ function LandingPage() {
                     }
                     .emoji-row span {
                         display: inline-block;
-                        padding: 0 1.5rem;
+                        padding: 0 0.5rem;
                         font-size: 2rem;
+                    }
+                    .avatar-float {
+                        animation: float 3s ease-in-out infinite, bounce-border 2s ease-in-out infinite;
+                    }
+                    .shake-hand {
+                        display: inline-block;
+                        animation: shake-hand 2.5s ease-in-out infinite;
+                        transform-origin: 70% 70%;
+                    }
+                    .animate-scale-in-center {
+                        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
                     }
                 `}</style>
                 {Array.from({ length: 18 }).map((_, rowIndex) => {
@@ -123,10 +181,10 @@ function LandingPage() {
 
             {/* 主要内容 */}
             <div className="relative z-10 min-h-screen flex items-center justify-center p-8">
-                <div className="text-center">
+                <div className="text-center animate-scale-in-center">
                     {/* 头像 */}
                     <div className="mb-8 flex justify-center">
-                        <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl bg-white">
+                        <div className="avatar-float w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-400 shadow-2xl bg-white">
                             <img
                                 src={config.avatar}
                                 alt="Avatar"
@@ -140,11 +198,16 @@ function LandingPage() {
                     </div>
 
                     {/* 玻璃态卡片 */}
-                    <div className="backdrop-blur-xl bg-white/10 rounded-3xl p-12 shadow-2xl border border-white/20 max-w-2xl">
+                    <div
+                        className="backdrop-blur-xl bg-white/10 rounded-3xl p-12 shadow-2xl border border-white/20 max-w-2xl"
+                        data-aos="fade-in"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                    >
                         {/* 标题 */}
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-                            👋 大家好，我是
-                            <span className="text-pink-400"> {config.nameHighlight}</span>
+                            <span className="shake-hand">👋</span> 大家好，我是
+                            <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent"> {config.nameHighlight}</span>
                         </h1>
 
                         {/* 副标题 */}
@@ -166,11 +229,10 @@ function LandingPage() {
                                         href={btn.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 ${
-                                            btn.variant === 'pink'
-                                                ? 'bg-white/10 border-2 border-pink-400 text-pink-400 hover:bg-pink-400/20'
-                                                : 'bg-white/10 border-2 border-blue-400 text-blue-400 hover:bg-blue-400/20'
-                                        }`}
+                                        className={`px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 ${btn.variant === 'pink'
+                                            ? 'bg-white/10 border-2 border-pink-400 text-pink-400 hover:bg-pink-400/20'
+                                            : 'bg-white/10 border-2 border-blue-400 text-blue-400 hover:bg-blue-400/20'
+                                            }`}
                                     >
                                         {btn.text}
                                     </a>
@@ -178,11 +240,10 @@ function LandingPage() {
                                     <Link
                                         key={idx}
                                         to={btn.link}
-                                        className={`px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 ${
-                                            btn.variant === 'pink'
-                                                ? 'bg-white/10 border-2 border-pink-400 text-pink-400 hover:bg-pink-400/20'
-                                                : 'bg-white/10 border-2 border-blue-400 text-blue-400 hover:bg-blue-400/20'
-                                        }`}
+                                        className={`px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 ${btn.variant === 'pink'
+                                            ? 'bg-white/10 border-2 border-pink-400 text-pink-400 hover:bg-pink-400/20'
+                                            : 'bg-white/10 border-2 border-blue-400 text-blue-400 hover:bg-blue-400/20'
+                                            }`}
                                     >
                                         {btn.text}
                                     </Link>
