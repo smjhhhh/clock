@@ -11,6 +11,7 @@ import FloatingGame from '../components/FloatingGame.jsx';
 import ExchangeRate from '../components/ExchangeRate.jsx';
 import WorldMap from '../components/WorldMap.jsx';
 import FeedsWidget from '../components/FeedsWidget.jsx';
+import PhotoFrame from '../components/PhotoFrame.jsx';
 import { FaReact, FaVuejs, FaNodeJs, FaPython, FaDocker, FaGitAlt } from 'react-icons/fa';
 import { SiTypescript, SiTailwindcss } from 'react-icons/si';
 
@@ -171,6 +172,7 @@ function HomePage() {
                             <div className="hidden md:flex gap-6">
                                 <a href="#about" className="text-gray-700 dark:text-gray-300 hover:text-pink-500 transition-colors">{t.nav.about}</a>
                                 <a href="#tools" className="text-gray-700 dark:text-gray-300 hover:text-pink-500 transition-colors">{t.nav.tools}</a>
+                                <Link to="/gallery" className="text-gray-700 dark:text-gray-300 hover:text-pink-500 transition-colors">📸 相册</Link>
                                 <Link to="/blog" className="text-gray-700 dark:text-gray-300 hover:text-pink-500 transition-colors">{t.nav.blog}</Link>
                                 <Link to="/heatmap" className="text-gray-700 dark:text-gray-300 hover:text-pink-500 transition-colors">{t.nav.market}</Link>
                             </div>
@@ -330,6 +332,11 @@ function HomePage() {
                                     </a>
                                 </div>
                             </div>
+                        </section>
+
+                        {/* 相册展示 */}
+                        <section data-aos="fade-up" data-aos-delay="300">
+                            <PhotoFrame />
                         </section>
                     </div>
                 </div>
